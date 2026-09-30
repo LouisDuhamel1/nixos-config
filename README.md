@@ -1,4 +1,4 @@
-[![NixOS CI](https://github.com/tbracquart/nixos-config/actions/workflows/check.yml/badge.svg)](https://github.com/tbracquart/nixos-config/actions/workflows/check.yml) [![Update flake](https://github.com/tbracquart/nixos-config/actions/workflows/update.yml/badge.svg)](https://github.com/tbracquart/nixos-config/actions/workflows/update.yml)
+[![NixOS CI](https://github.com/LouisDuhamel1/nixos-config/actions/workflows/check.yml/badge.svg)](https://github.com/LouisDuhamel1/nixos-config/actions/workflows/check.yml) [![Update flake](https://github.com/LouisDuhamel1/nixos-config/actions/workflows/update.yml/badge.svg)](https://github.com/LouisDuhamel1/nixos-config/actions/workflows/update.yml)
 
 # ❄️ NixOS Config
 
@@ -9,7 +9,7 @@ Le dépôt sépare la configuration système commune, les fonctionnalités réut
 
 > **Vous cherchez l'ISO d'installation ? Pas besoin de parcourir toutes les releases.**
 
-### 🚀 [Télécharger la dernière ISO d'installation](https://github.com/tbracquart/nixos-config/releases/tag/installer-latest)
+### 🚀 [Télécharger la dernière ISO d'installation](https://github.com/LouisDuhamel1/nixos-config/releases/tag/installer-latest)
 
 Cette page pointe toujours vers **la dernière ISO générée depuis `main`**.
 

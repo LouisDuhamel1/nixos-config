@@ -63,16 +63,16 @@ jobs:
           # directement les informations de l'événement GitHub. Cela évite de
           # dépendre de la disponibilité immédiate de cette review dans l'API.
           if [ "$EVENT_NAME" = "pull_request_review" ] &&
-             [ "$REVIEW_AUTHOR" = "tbracquart" ] &&
+             [ "$REVIEW_AUTHOR" = "LouisDuhamel1" ] &&
              [ "$REVIEW_STATE" = "approved" ] &&
              [ -n "$REVIEW_COMMIT" ] &&
              [ "$REVIEW_COMMIT" = "$head_sha" ]; then
-            echo "Autorisé : @tbracquart vient d'approuver le commit de tête actuel."
+            echo "Autorisé : @LouisDuhamel1 vient d'approuver le commit de tête actuel."
             exit 0
           fi
 
           # Le propriétaire du dépôt est toujours autorisé à fusionner ses propres PR.
-          if [ "$author" = "tbracquart" ]; then
+          if [ "$author" = "LouisDuhamel1" ]; then
             echo "Autorisé : propriétaire du dépôt."
             exit 0
           fi
@@ -111,7 +111,7 @@ jobs:
           fi
 
           echo
-          echo "Une approbation de @tbracquart est requise."
+          echo "Une approbation de @LouisDuhamel1 est requise."
 
           reviews="$(curl -fsSL --retry 3 --retry-delay 1 --retry-all-errors "${api_headers[@]}" \
             "https://api.github.com/repos/$REPOSITORY/pulls/$PR_NUMBER/reviews?per_page=100&page=1")"
@@ -123,12 +123,12 @@ jobs:
             reviews="$(jq -s 'add' <(printf '%s\n' "$reviews") <(printf '%s\n' "$next_reviews"))"
           done
 
-          approved="$(jq -r --arg sha "$head_sha" 'map(select(.user.login == "tbracquart" and .state == "APPROVED" and .commit_id == $sha)) | length' <<<"$reviews")"
+          approved="$(jq -r --arg sha "$head_sha" 'map(select(.user.login == "LouisDuhamel1" and .state == "APPROVED" and .commit_id == $sha)) | length' <<<"$reviews")"
 
           if [ "$approved" -gt 0 ]; then
-            echo "Autorisé : @tbracquart a approuvé le commit de tête actuel."
+            echo "Autorisé : @LouisDuhamel1 a approuvé le commit de tête actuel."
             exit 0
           fi
 
-          echo "Bloqué : aucune approbation de @tbracquart pour le commit de tête actuel."
+          echo "Bloqué : aucune approbation de @LouisDuhamel1 pour le commit de tête actuel."
           exit 1

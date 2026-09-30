@@ -56,7 +56,7 @@ jobs:
               - 'common/**'
               - 'modules/**'
               - 'profiles/**'
-              - 'users/thibaut/**/*.nix'
+              - 'users/louis/**/*.nix'
               - 'secrets/**'
               - 'patches/**'
               - 'config.nix'

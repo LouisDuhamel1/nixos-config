@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
     ./boot.nix
     ../../common
-    ../../users/thibaut/storage.nix
+    ../../users/louis/storage.nix
   ];
 
   networking.hostName = "ZenBook-13";
@@ -20,8 +20,8 @@
 
     users.${myConfig.username} = {
       imports = [
-        ../../users/thibaut/base
-        ../../users/thibaut/variants/zenbook.nix
+        ../../users/louis/base
+        ../../users/louis/variants/zenbook.nix
       ];
     };
   };
