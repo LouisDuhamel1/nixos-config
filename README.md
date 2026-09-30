@@ -34,10 +34,9 @@ Chaque PR destinée à être publiée doit donc porter un label indiquant explic
 
 | Hôte | Configuration |
 |---|---|
-| **ZenBook-13** | ASUS ZenBook 13 — NixOS unstable, Limine, noyau CachyOS BORE, Hyprland + Noctalia |
-| **V145-15AST** | Lenovo V145-15AST — NixOS unstable, systemd-boot, Plasma 6 |
+| **Ideapad3** | Lenovo IdeaPad 3 — NixOS unstable, Hyprland + Noctalia |
 
-Home Manager est intégré aux deux configurations. Thibaut est configuré sur les deux machines et Quentin sur le V145.
+Home Manager est intégré à la configuration. Louis est configuré sur cette machine.
 
 ## 📁 Structure
 
@@ -47,8 +46,7 @@ Home Manager est intégré aux deux configurations. Thibaut est configuré sur l
 │   ├── system/              # Configuration NixOS réellement commune
 │   └── users/               # Comptes Unix communs aux machines
 ├── hosts/
-│   ├── ZenBook-13/          # Particularités matérielles et système du ZenBook
-│   └── V145-15AST/          # Particularités matérielles et système du V145
+│   └── ideapad3/            # Particularités matérielles et système de l'Ideapad3
 ├── modules/                 # Fonctionnalités NixOS réutilisables et leurs options my.*
 ├── profiles/                # Profils de machines composant plusieurs fonctionnalités
 │   └── laptop.nix           # Profil commun aux ordinateurs portables
@@ -56,8 +54,7 @@ Home Manager est intégré aux deux configurations. Thibaut est configuré sur l
 ├── installer/               # Fichiers nécessaires à la génération de l'ISO d'installation
 ├── patches/                 # Correctifs appliqués aux sources
 ├── users/
-│   ├── thibaut/             # Configuration Home Manager de Thibaut
-│   └── quentin/             # Configuration Home Manager de Quentin
+│   └── louis/               # Configuration Home Manager de Louis
 ├── config.nix               # Valeurs personnelles centralisées
 ├── flake.nix
 ├── flake.lock
@@ -71,8 +68,8 @@ Le fichier `config.nix` centralise les valeurs personnelles à adapter, notammen
 - `.github/actions/setup-nix-cachix/action.yml` pour le nom du cache ;
 - `.github/workflows/authorization.yml` ;
 - `.github/CODEOWNERS` ;
-- `common/users/thibaut.nix` ;
-- `users/thibaut/` ;
+- `common/users/louis.nix` ;
+- `users/louis/` ;
 - `secrets/`.
 
 Dans un module NixOS, `myConfig` est reçu comme argument avec `{ myConfig, ... }:`. Dans un module Home Manager, il est transmis via `extraSpecialArgs`.
@@ -97,7 +94,7 @@ La présence d'un module est donc évaluée sur ses **effets réels**, pas seule
 
 Les outils d'administration système communs restent dans `common/system` lorsque leur présence est utile sur les différentes machines. Les applications de bureau personnelles, comme le terminal ou le gestionnaire de fichiers, restent dans Home Manager.
 
-## 🖥️ Environnement utilisateur de Thibaut
+## 🖥️ Environnement utilisateur de Louis
 
 - **Shell** : Fish
 - **Terminal** : Alacritty
@@ -111,7 +108,7 @@ Les extensions, thèmes et profils personnels de Firefox ne sont pas gérés par
 
 ## 🔐 Authentification faciale
 
-Le dépôt utilise **Howdy** pour l'authentification faciale via PAM sur les configurations qui l'activent. Le module de base est commun aux machines compatibles, tandis que la configuration liée au capteur infrarouge est sélectionnée séparément pour le ZenBook.
+Le dépôt utilise **Howdy** pour l'authentification faciale via PAM sur les configurations qui l'activent. Le module de base est commun aux machines compatibles, tandis que la configuration liée au capteur infrarouge est sélectionnée séparément lorsque nécessaire.
 
 ## 🔊 Services système communs
 
@@ -126,7 +123,7 @@ La base commune configure notamment :
 - KDE Connect ;
 - Fish comme shell système disponible pour les utilisateurs.
 
-Flatpak est géré par un module réutilisable et n'est activé que sur les hôtes qui le demandent ; il est actuellement activé sur le V145.
+Flatpak est géré par un module réutilisable et peut être activé par les hôtes qui le demandent.
 
 ## 🔑 Secrets et reproductibilité
 
@@ -148,8 +145,7 @@ Le flake suit `nixos-unstable` pour NixOS et `master` pour Home Manager.
 ### Build manuel
 
 ```bash
-sudo nixos-rebuild switch --flake ~/nixos-config#ZenBook-13
-sudo nixos-rebuild switch --flake ~/nixos-config#V145-15AST
+sudo nixos-rebuild switch --flake ~/nixos-config#Ideapad3
 ```
 
 Les fonctions Fish fournies par Home Manager incluent notamment `rebuild`, `update`, `upgrade`, `push` et `wait-ci`.

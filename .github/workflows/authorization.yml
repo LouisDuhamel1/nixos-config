@@ -77,39 +77,6 @@ jobs:
             exit 0
           fi
 
-          files="$(curl -fsSL --retry 3 --retry-delay 1 --retry-all-errors "${api_headers[@]}" \
-            "https://api.github.com/repos/$REPOSITORY/pulls/$PR_NUMBER/files?per_page=100&page=1")"
-          page=1
-          while [ "$(jq 'length' <<<"$files")" -eq 100 ]; do
-            page=$((page + 1))
-            next_files="$(curl -fsSL --retry 3 --retry-delay 1 --retry-all-errors "${api_headers[@]}" \
-              "https://api.github.com/repos/$REPOSITORY/pulls/$PR_NUMBER/files?per_page=100&page=$page")"
-            files="$(jq -s 'add' <(printf '%s\n' "$files") <(printf '%s\n' "$next_files"))"
-          done
-
-          # Seul Quentin bénéficie de l'exception de chemins délégués.
-          if [ "$author" = "qbracquart" ]; then
-            unauthorized="$(jq -r '.[] | .filename' <<<"$files" | while IFS= read -r file; do
-              case "$file" in
-                hosts/V145-15AST/*|users/quentin/*)
-                  ;;
-                *)
-                  printf '%s\n' "$file"
-                  ;;
-              esac
-            done)"
-
-            if [ -z "$unauthorized" ]; then
-              echo "Autorisé : tous les chemins modifiés sont délégués à @qbracquart."
-              exit 0
-            fi
-
-            echo "Chemins non autorisés pour @qbracquart :"
-            printf '%s\n' "$unauthorized"
-          else
-            echo "L'auteur de la PR n'est pas un collaborateur autorisé pour les chemins délégués."
-          fi
-
           echo
           echo "Une approbation de @LouisDuhamel1 est requise."
 

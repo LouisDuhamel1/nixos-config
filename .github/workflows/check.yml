@@ -19,8 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
-      V145-15AST: ${{ steps.filter.outputs.V145-15AST }}
-      ZenBook-13: ${{ steps.filter.outputs.ZenBook-13 }}
+      Ideapad3: ${{ steps.filter.outputs.Ideapad3 }}
       flake: ${{ steps.filter.outputs.flake }}
       flake-lock: ${{ steps.filter.outputs.flake-lock }}
       flake-definition: ${{ steps.filter.outputs.flake-definition }}
@@ -40,19 +39,8 @@ jobs:
         with:
           base: ${{ github.event_name == 'push' && github.event.before || '' }}
           filters: |
-            V145-15AST:
-              - 'hosts/V145-15AST/**'
-              - 'common/**'
-              - 'modules/**'
-              - 'profiles/**'
-              - 'users/**/*.nix'
-              - 'secrets/**'
-              - 'patches/**'
-              - 'config.nix'
-              - 'flake.nix'
-              - 'flake.lock'
-            ZenBook-13:
-              - 'hosts/ZenBook-13/**'
+            Ideapad3:
+              - 'hosts/ideapad3/**'
               - 'common/**'
               - 'modules/**'
               - 'profiles/**'
@@ -177,37 +165,18 @@ jobs:
   # Required checks `build-<host> / build` must remain visible. Therefore the
   # callers stay unconditional; the reusable workflow skips the runner when
   # the host is unaffected. Analyzer failures conservatively rebuild both.
-  build-ZenBook-13:
+  build-Ideapad3:
     needs: [changes, analyze-impact]
     if: always()
     permissions:
       contents: read
     uses: ./.github/workflows/build-host.yml # zizmor: ignore[self-repository] actionlint 1.7.12 ne reconnaît pas encore $/
     with:
-      host: ZenBook-13
+      host: Ideapad3
       should-build: >-
-        ${{ needs.changes.outputs.ZenBook-13 == 'true' ||
+        ${{ needs.changes.outputs.Ideapad3 == 'true' ||
             needs.changes.outputs['ci-build'] == 'true' ||
-            (needs['analyze-impact'].result == 'success' && contains(needs['analyze-impact'].outputs['build-hosts'], '\"ZenBook-13\"')) ||
-            (needs.changes.outputs.flake-lock == 'true' && needs.changes.outputs.flake-definition != 'true' && needs['analyze-impact'].result != 'success') }}
-      push-to-cachix: >-
-        ${{ github.event_name == 'pull_request' &&
-            github.event.pull_request.head.repo.full_name == github.repository }}
-    secrets:
-      CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
-
-  build-V145-15AST:
-    needs: [changes, analyze-impact]
-    if: always()
-    permissions:
-      contents: read
-    uses: ./.github/workflows/build-host.yml # zizmor: ignore[self-repository] actionlint 1.7.12 ne reconnaît pas encore $/
-    with:
-      host: V145-15AST
-      should-build: >-
-        ${{ needs.changes.outputs.V145-15AST == 'true' ||
-            needs.changes.outputs['ci-build'] == 'true' ||
-            (needs['analyze-impact'].result == 'success' && contains(needs['analyze-impact'].outputs['build-hosts'], '\"V145-15AST\"')) ||
+            (needs['analyze-impact'].result == 'success' && contains(needs['analyze-impact'].outputs['build-hosts'], '\"Ideapad3\"')) ||
             (needs.changes.outputs.flake-lock == 'true' && needs.changes.outputs.flake-definition != 'true' && needs['analyze-impact'].result != 'success') }}
       push-to-cachix: >-
         ${{ github.event_name == 'pull_request' &&

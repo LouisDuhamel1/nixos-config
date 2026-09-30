@@ -10,7 +10,7 @@
     ./system/security.nix
     ./system/services.nix
     ./system/shell.nix
-    ./users/thibaut.nix
+    ./users/louis.nix
     ../modules
     ../profiles
     inputs.home-manager.nixosModules.default
