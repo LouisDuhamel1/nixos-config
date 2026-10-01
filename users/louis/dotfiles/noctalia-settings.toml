@@ -117,11 +117,11 @@ widget_order = [ "lockscreen-login-box@winit", "lockscreen-login-box@eDP-1", "lo
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
     box_width = 810.0
-    cx = 960.0
-    cy = 898.0
+    cx = 1000.0
+    cy = 935.4166259765625
     output = "eDP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
+    placement_height = 1125.0
+    placement_width = 2000.0
     rotation = 0.0
     type = "login_box"
 
@@ -171,11 +171,11 @@ widget_order = [ "lockscreen-login-box@winit", "lockscreen-login-box@eDP-1", "lo
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 256.0
     box_width = 832.0
-    cx = 960.0
-    cy = 412.00003051757812
+    cx = 1000.0
+    cy = 429.16671752929688
     output = "eDP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
+    placement_height = 1125.0
+    placement_width = 2000.0
     rotation = 0.0
     type = "clock"
 
