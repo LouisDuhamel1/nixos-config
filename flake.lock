@@ -233,7 +233,24 @@
         "multiverse": "multiverse",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixpkgs": "nixpkgs_3",
-        "omnibin": "omnibin"
+        "omnibin": "omnibin",
+        "satu8": "satu8"
+      }
+    },
+    "satu8": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1782961467,
+        "narHash": "sha256-dK//ADu8smzXgEyy72e+V0DGuZwUWGy5rpLO90hw2Nk=",
+        "owner": "NtrpyDev",
+        "repo": "satur8",
+        "rev": "ca53e605ef7dc60cba14edda7df301e50d60f360",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NtrpyDev",
+        "repo": "satur8",
+        "type": "github"
       }
     }
   },
