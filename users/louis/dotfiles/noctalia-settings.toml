@@ -203,7 +203,7 @@ update_command = "git -C ~/nixos-config pull --ff-only && sudo nixos-rebuild swi
 locale = "fr-FR"
 
 [plugin_settings."tphilippot/git_companion"]
-repo = "tbracquart/nixos-config"
+repo = "LouisDuhamel1/nixos-config"
 
 [plugins]
 enabled = [

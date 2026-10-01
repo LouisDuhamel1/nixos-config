@@ -5,10 +5,10 @@
     ./hardware-configuration.nix
     ./boot.nix
     ../../common
-    ../../users/thibaut/storage.nix
+    ../../users/louis/storage.nix
   ];
 
-  networking.hostName = "ZenBook-13";
+  networking.hostName = "Ideapad3";
   system.stateVersion = "26.05";
 
   nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
@@ -20,18 +20,17 @@
 
     users.${myConfig.username} = {
       imports = [
-        ../../users/thibaut/base
-        ../../users/thibaut/variants/zenbook.nix
+        ../../users/louis/base
+        ../../users/louis/variants/ideapad3.nix
       ];
     };
   };
 
   my.profile = "laptop";
-  my.authentication.howdy.ir.enable = true;
-  my.bluetooth.powerOnBoot = true;
+  my.bluetooth.powerOnBoot = false;
   my.compatibility.nix-ld.enable = true;
   my.desktop.hyprland.enable = true;
-  my.graphics.intel.enable = true;
+  my.graphics.amd.enable = true;
   my.location.geoclue2.enable = true;
   my.virtualisation.libvirt.enable = true;
   my.virtualisation.libvirt.user = myConfig.username;
