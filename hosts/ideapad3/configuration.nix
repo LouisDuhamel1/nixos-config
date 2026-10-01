@@ -27,7 +27,7 @@
   };
 
   my.profile = "laptop";
-  my.bluetooth.powerOnBoot = true;
+  my.bluetooth.powerOnBoot = false;
   my.compatibility.nix-ld.enable = true;
   my.desktop.hyprland.enable = true;
   my.graphics.amd.enable = true;
