@@ -94,7 +94,6 @@ autolabeler:
   - label: 'area: secrets'
     files:
       - 'secrets/**'
-      - '.sops.yaml'
   - label: 'type: documentation'
     files:
       - '**/*.md'

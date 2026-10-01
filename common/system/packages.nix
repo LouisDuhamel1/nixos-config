@@ -7,8 +7,6 @@
     file
     pciutils
     ripgrep
-    sops
-    ssh-to-age
     tree
     usbutils
     peazip
