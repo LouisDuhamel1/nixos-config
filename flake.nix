@@ -1,5 +1,5 @@
 {
-  description = "NixOS + Home Manager Flake pour ZenBook 13 et V145-15AST";
+  description = "NixOS + Home Manager Flake pour Ideapad3";
 
   nixConfig = {
     # Le cache personnel est configuré dans common/system/nix.nix via config.nix.
@@ -36,11 +36,6 @@
     };
 
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
-
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { nixpkgs, ... }@inputs:
@@ -65,14 +60,9 @@
         modules = [ ./installer/iso.nix ];
       };
 
-      nixosConfigurations.ZenBook-13 = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.Ideapad3 = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs myConfig; };
-        modules = [ ./hosts/ZenBook-13/configuration.nix ];
-      };
-
-      nixosConfigurations.V145-15AST = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs myConfig; };
-        modules = [ ./hosts/V145-15AST/configuration.nix ];
+        modules = [ ./hosts/ideapad3/configuration.nix ];
       };
     };
 }

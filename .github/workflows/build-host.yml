@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       host:
-        description: 'Nom du host NixOS à build (ex. ZenBook-13)'
+        description: 'Nom du host NixOS à build (ex. Ideapad3)'
         required: true
         type: string
       should-build:
