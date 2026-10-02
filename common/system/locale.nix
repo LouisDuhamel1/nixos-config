@@ -1,7 +1,10 @@
 { ... }:
 
 {
-  time.timeZone = "Europe/Paris";
+  time = {
+    timeZone = "Europe/Paris";
+    hardwareClockInLocalTime = true;
+  };
 
   i18n = {
     defaultLocale = "fr_FR.UTF-8";
