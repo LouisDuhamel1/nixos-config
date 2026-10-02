@@ -37,12 +37,6 @@
 
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
 
-    satu8 = {
-      url = "github:NtrpyDev/satur8";
-      flake = false;
-    };
-  };
-
   outputs = { nixpkgs, ... }@inputs:
     let
       myConfig = import ./config.nix;
