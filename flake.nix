@@ -36,6 +36,7 @@
     };
 
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
+  };
 
   outputs = { nixpkgs, ... }@inputs:
     let
