@@ -5,7 +5,11 @@
     loader = {
       limine = {
         enable = true;
-        maxGenerations = 20;
+	extraEntries=''
+	 /Windows
+            protocol: efi
+            path: fslabel(SYSTEM_DRV):/EFI/Microsoft/Boot/bootmgfw.efi'';       
+	  maxGenerations = 20;
         style = {
           wallpapers = [
             (pkgs.fetchurl {
@@ -18,7 +22,7 @@
         };
       };
       efi.canTouchEfiVariables = true;
-      timeout = 1;
+      timeout = 3;
     };
 
     kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore;

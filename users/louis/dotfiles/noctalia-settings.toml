@@ -378,13 +378,13 @@ directory = "/home/louis/Images/Fonds d'écran/daily-wallpaper"
 transition_on_startup = true
 
     [wallpaper.default]
-    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-05.jpg"
+    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-08.jpg"
 
     [wallpaper.last]
-    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-05.jpg"
+    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-08.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-05.jpg"
+    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-08.jpg"
 
     [[wallpaper.favorite]]
     palette_source = "wallpaper"
