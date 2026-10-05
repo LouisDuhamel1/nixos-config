@@ -25,6 +25,11 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    zen-browser = {
+	url = "github:0xc000022070/zen-browser-flake";
+	inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
@@ -38,7 +43,7 @@
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
   };
 
-  outputs = { nixpkgs, ... }@inputs:
+  outputs = {self,  nixpkgs, zen-browser, ... }@inputs:
     let
       myConfig = import ./config.nix;
       repoSource = nixpkgs.lib.fileset.toSource {
