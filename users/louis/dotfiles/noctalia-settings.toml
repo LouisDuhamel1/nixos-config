@@ -7,8 +7,8 @@ enable_sounds = true
 [bar.default]
 background_opacity = 0.59999998658895493
 capsule = true
-center = [ "notifications", "notes", "clock", "media", "clipboard" ]
-end = [ "tray", "group:g1", "screenshot", "session", "status" ]
+center = [ "notes", "clock", "clipboard" ]
+end = [ "tray", "group:g1", "screenshot", "session", "status", "media" ]
 start = [ "launcher", "workspaces", "group:g3", "group:g2" ]
 
     [bar.default.dead_zone.actions]
@@ -17,16 +17,18 @@ start = [ "launcher", "workspaces", "group:g3", "group:g2" ]
     [[bar.default.capsule_group]]
     accordion = false
     accordion_direction = "end"
+    border_width = 1.0
     enabled = true
     fill = "surface_variant"
     id = "g1"
-    members = [ "network", "bluetooth", "volume", "brightness", "battery" ]
+    members = [ "network", "bluetooth", "volume", "brightness", "battery", "caffeine" ]
     opacity = 1.0
     padding = 6.0
 
     [[bar.default.capsule_group]]
     accordion = false
     accordion_direction = "end"
+    border_width = 1.0
     enabled = true
     fill = "surface_variant"
     id = "g2"
@@ -37,6 +39,7 @@ start = [ "launcher", "workspaces", "group:g3", "group:g2" ]
     [[bar.default.capsule_group]]
     accordion = false
     accordion_direction = "end"
+    border_width = 1.0
     enabled = true
     fill = "surface_variant"
     id = "g3"
