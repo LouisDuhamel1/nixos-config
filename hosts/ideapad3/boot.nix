@@ -25,7 +25,7 @@
       timeout = 3;
     };
 
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore;
+    kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [
       "loglevel=3"
       "rd.systemd.show_status=false"
