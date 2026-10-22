@@ -6,7 +6,7 @@
     # nixConfig ne peut pas lire config.nix : il n'est donc actif qu'après activation du système.
     extra-substituters = [
       "https://nix-community.cachix.org"
-      "https://attic.xuyh0120.win/lantian"
+     # "#https://attic.xuyh0120.win/lantian"
       "https://freesmlauncher.cachix.org"
       "https://noctalia.cachix.org"
     ];
@@ -30,7 +30,7 @@
 	inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+   # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
