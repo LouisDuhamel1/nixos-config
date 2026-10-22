@@ -6,7 +6,6 @@
     # nixConfig ne peut pas lire config.nix : il n'est donc actif qu'après activation du système.
     extra-substituters = [
       "https://nix-community.cachix.org"
-     # "#https://attic.xuyh0120.win/lantian"
       "https://freesmlauncher.cachix.org"
       "https://noctalia.cachix.org"
     ];
