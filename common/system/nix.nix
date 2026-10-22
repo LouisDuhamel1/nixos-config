@@ -15,7 +15,6 @@ in
         [
           "https://cache.nixos.org"
           "https://nix-community.cachix.org"
-          "https://attic.xuyh0120.win/lantian"
           "https://freesmlauncher.cachix.org"
           "https://noctalia.cachix.org"
         ]
