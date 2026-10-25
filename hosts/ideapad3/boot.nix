@@ -39,8 +39,8 @@
 
     initrd = {
       kernelModules = [ "xe" ];
-      systemd.enable = true;
-      verbose = false;
+     # systemd.enable = true;
+     # verbose = false;
     };
   };
 }
