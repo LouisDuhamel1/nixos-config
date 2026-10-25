@@ -9,5 +9,7 @@
     ./location
     ./power
     ./virtualisation
+    ./ntfs.nix
+    ./printing.nix
   ];
 }
