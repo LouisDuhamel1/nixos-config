@@ -11,5 +11,6 @@
     ./virtualisation
     ./ntfs.nix
     ./printing.nix
+    ./tty-mouse.nix
   ];
 }
