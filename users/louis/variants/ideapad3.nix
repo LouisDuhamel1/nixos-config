@@ -8,6 +8,9 @@
   home.file.".config/hypr/init.lua".source =
     config.lib.file.mkOutOfStoreSymlink
       "${config.my.flakePath}/users/louis/dotfiles/hyprland.lua";
+  home.file.".config/hypr/config-hyprland".source=
+    config.lib.file.mkOutOfStoreSymlink
+      "${config.my.flakePath}/users/louis/dotfiles/config-hyprland";
 
   wayland.windowManager.hyprland = {
     enable = true;
