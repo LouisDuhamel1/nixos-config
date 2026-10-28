@@ -12,6 +12,8 @@
     vinegar
     nemo-with-extensions
     gimp
+    android-tools
+    ntfs3g
   ]) ++ [
     inputs.freesmlauncher.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
