@@ -3,7 +3,7 @@
 {
   services.gpm.enable=true;
 
-  systemd.service.gpm = {
+  systemd.services.gpm = {
     unitConfig.RefuseManualStart=false;
     serviceConfig.TimeoutStopSec=2;
   };
