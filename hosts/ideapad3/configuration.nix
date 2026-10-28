@@ -17,7 +17,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs myConfig; };
-
+    backupFileExtension = "backup";
     users.${myConfig.username} = {
       imports = [
         ../../users/louis/base
