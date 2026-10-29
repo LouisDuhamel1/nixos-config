@@ -30,7 +30,11 @@ in
       settings = {
         output.scale = 1;
         keyboard.layout = "fr";
-      };      
+        clock = {
+          time_format = "{:%k:%M}";
+          date_format = "{%A, %-d/%-m/%Y}";
+        };
+      };     
     };
   };
 }
