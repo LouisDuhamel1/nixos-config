@@ -4,7 +4,7 @@
     ./bluetooth
     ./compatibility
     ./desktop
-    ./flatpak
+    ./executables
     ./graphics
     ./location
     ./power
