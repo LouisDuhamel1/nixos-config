@@ -32,7 +32,7 @@ in
         keyboard.layout = "fr";
         clock = {
           time_format = "{:%k:%M}";
-          date_format = "{%A, %-d/%-m/%Y}";
+          date_format = "{:%A, %-d/%-m/%Y}";
         };
       };     
     };
