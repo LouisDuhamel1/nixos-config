@@ -104,7 +104,7 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
     timeout = 660.0
 
 [location]
-auto_locate = true
+address = "Etaples"
 
 [lockscreen]
 allow_empty_password = true
