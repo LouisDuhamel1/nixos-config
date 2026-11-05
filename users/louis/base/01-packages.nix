@@ -12,6 +12,7 @@
     vinegar
     nemo-with-extensions
     gimp
+    libnotify
     android-tools
     ntfs3g
   ]) ++ [
