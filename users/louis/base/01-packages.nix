@@ -15,6 +15,7 @@
     libnotify
     android-tools
     ntfs3g
+    inotify-tools
   ]) ++ [
     inputs.freesmlauncher.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
