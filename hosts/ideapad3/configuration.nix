@@ -25,7 +25,8 @@
       ];
     };
   };
-
+ nix.settings.trusted-users = [ "root" "louis" ];
+  
   my.profile = "laptop";
   my.bluetooth.powerOnBoot = false;
   my.compatibility.nix-ld.enable = true;
