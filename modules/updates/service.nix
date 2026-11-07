@@ -1,14 +1,24 @@
 { config, pkgs, ... }:
 
 {
-  # On utilise systemd.user.services au lieu de systemd.services
-  systemd.user.services.mon-service = {
+  systemd.services.mon-service = {
     description = "Mon service utilisateur toutes les 6h";
-    wantedBy = [ "graphical-session.target" ]; # Se lance quand ta session graphique démarre
+    wantedBy = [ "multi-user.target" ];
+    
+    path = [ pkgs.libnotify pkgs.bash pkgs.iputils pkgs.git pkgs.nix ];
 
     serviceConfig = {
+      # Exécute directement le service en tant que ton utilisateur
+      User = "louis";
+      WorkingDirectory = "/home/louis/nixos-config";
       ExecStart = "/home/louis/nixos-config/update/check.sh";
       Restart = "on-failure";
+      
+      # Indique à systemd où trouver le bus D-Bus pour cet utilisateur
+      Environment = [
+        "XDG_RUNTIME_DIR=/run/user/1000"
+        "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus"
+      ];
     };
   };
 }
