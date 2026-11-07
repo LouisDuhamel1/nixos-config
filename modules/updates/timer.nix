@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
- systemd.timers.mon-service = {
+ systemd.user.timers.mon-service = {
     description = "Timer toutes les 6 heures";
     wantedBy = [ "timers.target" ];
     timerConfig = {

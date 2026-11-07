@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  systemd.services.mon-service = {
+  systemd.user.services.mon-service = {
     description = "Mon service toutes les 6h";
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = [ "graphical-session.target" ];
     
     # Injecte directement libnotify et bash dans le PATH du service
     path = [ pkgs.libnotify pkgs.bash ];
