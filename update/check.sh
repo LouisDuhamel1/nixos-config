@@ -2,11 +2,10 @@ coupure=0
 while ! ping -c 1 -W 2 1.1.1.1 >/dev/null 2>&1; do
   notify-send "Impossible de lancer la vérification.
   Veuillez vérifier votre connexion internet"
-  coupure=1
   sleep 60
 done
 
-if [ "$coupure" = "1" ]; then 
+if [ "$coupure" = -eq 1 ]; then 
   notify-send "Connexion rétabli !
   Reprise de la vérification"
 fi
