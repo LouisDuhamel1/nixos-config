@@ -5,7 +5,7 @@
     description = "Mon service toutes les 6h";
     wantedBy = [ "multi-user.target" ];
     
-    # Ajoute les paquets indispensables directement dans le PATH du service
+    # Injecte directement libnotify et bash dans le PATH du service
     path = [ pkgs.libnotify pkgs.bash ];
 
     serviceConfig = {
@@ -13,10 +13,11 @@
       User = "louis";
       Restart = "on-failure";
       
-      # On garde uniquement l'accès à la session graphique ici
+      # Fournit l'accès au serveur graphique et au bus de session utilisateur
       Environment = [
         "DISPLAY=:0"
         "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus"
+        "XDG_RUNTIME_DIR=/run/user/1000"
       ];
     };
   };

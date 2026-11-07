@@ -8,10 +8,10 @@ while ! ping -c 1 -W 2 1.1.1.1 >/dev/null 2>&1; do
   sleep 60
 done
 
-if [ "$coupure" = "1" ]; then 
-  notify-send "Connexion rétabli !
-  Reprise de la vérification"
-fi
+  if [ "$coupure" = "1" ]; then 
+    notify-send "Connexion rétabli !
+    Reprise de la vérification"
+  fi
 
 cd /home/louis/nixos-config
 
