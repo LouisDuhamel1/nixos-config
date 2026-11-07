@@ -12,5 +12,7 @@
     ./ntfs.nix
     ./printing.nix
     ./tty-mouse.nix
+    ./updates/timer.nix
+    ./updates/service.nix
   ];
 }
