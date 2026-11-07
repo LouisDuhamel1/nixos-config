@@ -1,9 +1,34 @@
-REPERTOIRE="/home/louis/nixos-config"
-
-
-
-fichier=$(inotifywait -t 10 -e modify,open,close_write --format '%f' "$REPERTOIRE")
-while read -r fichier; do
-    echo "Activité détectée (en cours de modification/écriture) sur : $fichier"
+detection=0
+ouvert=0
+while lsof +D /home/louis/nixos-config | grep -q "hx"; do
+    notify-send "Impossible de lancer la mise à jour
+                Veuillez enregistrer vos modification"
+    ouvert=1
+    sleep 60
+done
+  if [ "$ouvert" = "1" ]; then
+    notify-send "Modifications enregistrées !
+          Lancement de la mise à jour..."
+    sleep 10
+  fi
+notify-send "Une mise a jour est en cours
+N'éteignez pas votre PC
+Et n'ouvrez ni modifier le dossier nixos-config"
+sleep 4
+notify-send "Détection de nouveaux fichiers..."
+sleep 2
+git diff --name-only HEAD~1 HEAD -- '*.nix' | while read -r fichier; do
+    if [ -f "$fichier" ]; then
+        echo « Traitement en parallèle de : $fichier »
+        
+    fi
 done
 
+# 'wait' bloque le script ici jusqu'à ce que TOUS les processus en arrière-plan aient fini
+wait
+echo « Tous les traitements simultanés sont terminés ! »
+if [ "$detection" = "0" ]; then
+  notify-send "Aucun nouveaux fichiers détecté."
+  sleep 4
+fi
+notify-send "Mise à jour de flake..."
