@@ -11,15 +11,18 @@ done
           Lancement de la mise à jour..."
     sleep 10
   fi
+cd /home/louis/nixos-config
+git add .
+git commit -m "un fichier est en cours de modification "
 notify-send "Une mise a jour est en cours
 N'éteignez pas votre PC
 Et n'ouvrez ni modifier le dossier nixos-config"
 sleep 4
 notify-send "Détection de nouveaux fichiers..."
 sleep 2
-git diff --name-only HEAD~1 HEAD -- '*.nix' | while read -r fichier; do
-    if [ -f "$fichier" ]; then
-        echo « Traitement en parallèle de : $fichier »
+git diff --name-only HEAD~1 HEAD -- '*.nix'| while read -r statut fichier; do
+    if [ -f  "$fichier"  ]; then
+        echo "Traitement en parallèle de : $fichier "
         
     fi
 done
