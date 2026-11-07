@@ -20,11 +20,5 @@ notify-send "Mise à jour de flake..."
 nix flake update
 git add .
 git commit -m  "mise à jour du dépot"
-sleep 15
-bug=$(git rebase)
-if [ "bug" != "La branche courante main est à jour." ];then
-  notify-send "Impossible de lancer le Téléchargement ou l'installation.
-  Vous avez des conflits"
-  exit
-fi
+git push
 sudo nixos-rebuild switch --flake
