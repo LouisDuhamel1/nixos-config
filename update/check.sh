@@ -1,3 +1,5 @@
+#!/run/current-system/sw/bin/bash
+
 coupure=0
 while ! ping -c 1 -W 2 1.1.1.1 >/dev/null 2>&1; do
   notify-send "Impossible de lancer la vérification.
