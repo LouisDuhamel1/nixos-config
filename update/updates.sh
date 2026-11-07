@@ -13,20 +13,26 @@ done
   fi
 cd /home/louis/nixos-config
 git add .
-git commit -m "un fichier est en cours de modification "
 notify-send "Une mise a jour est en cours
 N'éteignez pas votre PC
 Et n'ouvrez ni modifier le dossier nixos-config"
 sleep 4
 notify-send "Détection de nouveaux fichiers..."
 sleep 2
-git diff --name-only HEAD~1 HEAD -- '*.nix'| while read -r statut fichier; do
-    if [ "$statut" == "??" && "$fichier" == *.nix  ]; then
-        echo "Traitement en parallèle de : $fichier "
-        
+git status --porcelain | while read -r statut fichier; do
+    # Nettoie les guillemets éventuels autour du nom de fichier
+    fichier=$(eval echo "$fichier")
+    
+    # On filtre : uniquement les statuts de nouveaux fichiers "??' et qui se terminent par .nix
+    if [[ "$statut" == "??" && "$fichier" == *.nix ]]; then
+        if [ -f "$fichier" ]; then
+            echo "Nouveau fichier .nix détecté : $fichier"
+            
+            # Lance ton action ici en parallèle si tu veux :
+            # nix-build "$fichier" &
+        fi
     fi
 done
-
 # 'wait' bloque le script ici jusqu'à ce que TOUS les processus en arrière-plan aient fini
 wait
 echo « Tous les traitements simultanés sont terminés ! »
