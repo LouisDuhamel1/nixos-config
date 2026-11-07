@@ -12,32 +12,19 @@ done
     sleep 10
   fi
 cd /home/louis/nixos-config
-git add .
 notify-send "Une mise a jour est en cours
 N'éteignez pas votre PC
 Et n'ouvrez ni modifier le dossier nixos-config"
-sleep 4
-notify-send "Détection de nouveaux fichiers..."
-sleep 2
-git status --porcelain | while read -r statut fichier; do
-    # Nettoie les guillemets éventuels autour du nom de fichier
-    fichier=$(eval echo "$fichier")
-    
-    # On filtre : uniquement les statuts de nouveaux fichiers "??' et qui se terminent par .nix
-    if [[ "$statut" == "??" && "$fichier" == *.nix ]]; then
-        if [ -f "$fichier" ]; then
-            echo "Nouveau fichier .nix détecté : $fichier"
-            
-            # Lance ton action ici en parallèle si tu veux :
-            # nix-build "$fichier" &
-        fi
-    fi
-done
-# 'wait' bloque le script ici jusqu'à ce que TOUS les processus en arrière-plan aient fini
-wait
-echo « Tous les traitements simultanés sont terminés ! »
-if [ "$detection" = "0" ]; then
-  notify-send "Aucun nouveaux fichiers détecté."
-  sleep 4
-fi
+sleep 8
 notify-send "Mise à jour de flake..."
+nix flake update
+git add .
+git commit -m  "mise à jour du dépot"
+sleep 15
+bug=$(git rebase)
+if [ "bug" != "La branche courante main est à jour." ];then
+  notify-send "Impossible de lancer le Téléchargement ou l'installation.
+  Vous avez des conflits"
+  exit
+fi
+sudo nixos-rebuild switch --flake
