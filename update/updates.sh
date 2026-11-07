@@ -21,7 +21,7 @@ sleep 4
 notify-send "Détection de nouveaux fichiers..."
 sleep 2
 git diff --name-only HEAD~1 HEAD -- '*.nix'| while read -r statut fichier; do
-    if [ -f  "$fichier"  ]; then
+    if [ "$statut" == "??" && "$fichier" == *.nix  ]; then
         echo "Traitement en parallèle de : $fichier "
         
     fi
