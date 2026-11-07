@@ -23,4 +23,4 @@ git commit -m  "mise à jour du dépot"
 git push
 notify-send "Téléchargement et installation en cours des MAJ ..."
 sudo nixos-rebuild switch --flake
-notify-send "Mise à jour terminé"
+notify-send "Mise à jour terminée!"
