@@ -16,6 +16,7 @@
     android-tools
     ntfs3g
     inotify-tools
+    lsof
   ]) ++ [
     inputs.freesmlauncher.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
