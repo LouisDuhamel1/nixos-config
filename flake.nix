@@ -22,10 +22,10 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
       };
-    
+     
     zen-browser = {
-	url = "github:0xc000022070/zen-browser-flake";
-	inputs.nixpkgs.follows = "nixpkgs";
+    url = "github:0xc000022070/zen-browser-flake";
+    inputs.nixpkgs.follows = "nixpkgs";
     };
 
    # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
@@ -40,7 +40,7 @@
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
   };
 
-  outputs = {self,  nixpkgs, zen-browser, ... }@inputs:
+  outputs = {self,  nixpkgs, zen-browser, omnibin, ... }@inputs:
     let
       myConfig = import ./config.nix;
       repoSource = nixpkgs.lib.fileset.toSource {
@@ -64,7 +64,25 @@
 
       nixosConfigurations.Ideapad3 = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs myConfig; };
-        modules = [ ./hosts/ideapad3/configuration.nix ];
+        modules = [ 
+          ./hosts/ideapad3/configuration.nix 
+          # 👇 Ajout de l'overlay pour patcher omnibin et lui donner sqlite et fuse3
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [
+              (final: prev: {
+                omnibin = omnibin.packages.${prev.stdenv.hostPlatform.system}.omnibin.overrideAttrs (oldAttrs: {
+                  nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ prev.pkg-config ];
+                  buildInputs = (oldAttrs.buildInputs or []) ++ [ prev.sqlite prev.fuse3 ];
+                });
+                
+                omnibin-shell = omnibin.packages.${prev.stdenv.hostPlatform.system}.omnibin-shell.overrideAttrs (oldAttrs: {
+                  nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ prev.pkg-config ];
+                  buildInputs = (oldAttrs.buildInputs or []) ++ [ prev.sqlite prev.fuse3 ];
+                });
+              })
+            ];
+          })
+        ];
       };
     };
 }

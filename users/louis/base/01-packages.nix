@@ -17,6 +17,8 @@
     ntfs3g
     inotify-tools
     lsof
+    fuse3
+    sqlite
   ]) ++ [
     inputs.freesmlauncher.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
