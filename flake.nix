@@ -73,18 +73,12 @@
           ({ pkgs, ... }: {
             nixpkgs.overlays = [
               (final: prev: {
-                omnibin = omnibin.packages.${prev.stdenv.hostPlatform.system}.omnibin.overrideAttrs (oldAttrs: {
-                  nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ prev.pkg-config ];
-                  buildInputs = (oldAttrs.buildInputs or []) ++ [ prev.sqlite prev.fuse3 ];
-                });
-                
-                omnibin-shell = omnibin.packages.${prev.stdenv.hostPlatform.system}.omnibin-shell.overrideAttrs (oldAttrs: {
-                  nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ prev.pkg-config ];
-                  buildInputs = (oldAttrs.buildInputs or []) ++ [ prev.sqlite prev.fuse3 ];
-                });
+                omnibin = omnibin.packages.${prev.stdenv.hostPlatform.system}.omnibin;
+                omnibin-shell = omnibin.packages.${prev.stdisenv.hostPlatform.system or "x86_64-linux"}.omnibin-shell;
               })
             ];
           })
+          
         ];
       };
     };
