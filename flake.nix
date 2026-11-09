@@ -73,12 +73,31 @@
           ({ pkgs, ... }: {
             nixpkgs.overlays = [
               (final: prev: {
-                omnibin = omnibin.packages.${prev.stdenv.hostPlatform.system}.omnibin;
-                omnibin-shell = omnibin.packages.${prev.stdisenv.hostPlatform.system or "x86_64-linux"}.omnibin-shell;
+                omnibin = omnibin.packages.${prev.stdenv.hostPlatform.system}.omnibin.overrideAttrs (oldAttrs: {
+                nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ prev.pkg-config ];
+                buildInputs = (oldAttrs.buildInputs or []) ++ [ prev.sqlite prev.fuse3 ];
+        
+                 # Variables indispensables pour que le paquet Rust trouve SQLite et FUSE
+                SQLITE3_LIB_DIR = "${prev.sqlite.out}/lib";
+                SQLITE3_INCLUDE_DIR = "${prev.sqlite.dev}/include";
+                PKG_CONFIG_PATH = "${prev.sqlite.dev}/lib/pkgconfig:${prev.fuse3.dev}/lib/pkgconfig";
+        
+                NIX_LDFLAGS = (oldAttrs.NIX_LDFLAGS or "") + " -L${prev.sqlite.out}/lib -L${prev.fuse3.out}/lib";
+              });
+      
+                omnibin-shell = omnibin.packages.${prev.stdenv.hostPlatform.system}.omnibin-shell.overrideAttrs (oldAttrs: {
+                  nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ prev.pkg-config ];
+                  buildInputs = (oldAttrs.buildInputs or []) ++ [ prev.sqlite prev.fuse3 ];
+        
+                  SQLITE3_LIB_DIR = "${prev.sqlite.out}/lib";
+                  SQLITE3_INCLUDE_DIR = "${prev.sqlite.dev}/include";
+                  PKG_CONFIG_PATH = "${prev.sqlite.dev}/lib/pkgconfig:${prev.fuse3.dev}/lib/pkgconfig";
+        
+                  NIX_LDFLAGS = (oldAttrs.NIX_LDFLAGS or "") + " -L${prev.sqlite.out}/lib -L${prev.fuse3.out}/lib";
+                });
               })
             ];
-          })
-          
+          })         
         ];
       };
     };
