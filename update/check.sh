@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
 coupure=0
 debut=$(date +%s)
-duree_max=20
+duree_max=600
 while ! ping -c 1 -W 2 1.1.1.1 >/dev/null 2>&1; do
   notify-send "Impossible de lancer la vérification.
   Veuillez vérifier votre connexion internet"
   coupure=1
   actuel=$(date +%s)
   ecoule=$((actuel - debut))
-  echo "Temps écoulé : $ecoule secondes (sur $duree_max max)"
   
   if [ "$ecoule" -ge  "$duree_max" ]; then
     notify-send "Echec de la récuperation d'internet
     Vérification annulé"
-    break
+    exit
   fi
   sleep 60
 done
