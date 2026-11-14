@@ -23,6 +23,18 @@
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
+    fileSystems."/mnt/disque-externe" = {
+    device = "/dev/disk/by-uuid/15E51A151AE06D6C";
+    fsType = "ntfs3";
+    options = [
+      "nofail"       # Crucial : évite de bloquer le démarrage si le disque est débranché
+      "noauto"       # Optionnel : empêche le montage automatique au boot si vous préférez le monter à la main
+      "uid=1000"     # Pour que votre utilisateur soit propriétaire des fichiers
+      "gid=100"
+      "umask=022"
+      "rw"
+    ];
+  };
 
   swapDevices = [ ];
 
