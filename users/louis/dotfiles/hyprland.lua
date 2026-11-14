@@ -8,18 +8,6 @@
 -- Écran intégré du ZenBook, placé sous l'écran externe.
 hl.monitor({
     output   = "eDP-1",
-    mode     = "1920x1080@60.00300",
-    position = "0x0",
-    scale    = "1",
-})
-
--- Règle par défaut pour les écrans externes non configurés explicitement.
--- Leur bord gauche est aligné sur celui du ZenBook, au-dessus de l'écran intégré.
-hl.monitor({
-    output   = "",
-    mode     = "preferred",
-    position = "0x-1080",
-    scale    = "1",
 })
 
 ---------------------
