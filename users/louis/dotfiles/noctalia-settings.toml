@@ -50,6 +50,9 @@ start = [ "launcher", "workspaces", "group:g3", "group:g2" ]
 [battery]
 warning_threshold = 20
 
+[brightness]
+sync_all_monitors = true
+
 [calendar]
 enabled = true
 event_date_format = "%-A %-e %B"
@@ -61,20 +64,101 @@ event_time_format = "%k:%M"
 
 [desktop_widgets]
 schema_version = 2
-widget_order = []
+widget_order = [
+    "desktop-widget-0000000000000001",
+    "desktop-widget-0000000000000002",
+    "desktop-widget-0000000000000003",
+    "desktop-widget-0000000000000004",
+    "desktop-widget-0000000000000005"
+]
 
     [desktop_widgets.grid]
-    cell_size = 64
+    cell_size = 16
     major_interval = 4
     visible = true
 
-    [desktop_widgets.widget]
+    [desktop_widgets.widget.desktop-widget-0000000000000001]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1760.0
+    cy = 1003.5
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "nzlov/daily-wallpaper:desktop"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000002]
+    box_height = 128.0
+    box_width = 256.0
+    cx = 900.0
+    cy = 172.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
+        background = true
+        background_color = "surface"
+        background_opacity = 0.80000000000000004
+        background_padding = 10
+        background_radius = 12
+        center_text = true
+        circle = true
+        clock_style = "digital"
+        color = "on_surface"
+        font_family = ""
+        format = "{:%H:%M}"
+        shadow = true
+        show_seconds = true
+        timezone = "Europe/Paris"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000003]
+    box_height = 128.0
+    box_width = 128.0
+    cx = 1116.0
+    cy = 172.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
+        clock_style = "analog"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000004]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 964.0
+    cy = 300.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "weather"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000005]
+    box_height = 136.0
+    box_width = 312.0
+    cx = 960.0
+    cy = 888.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "media_player"
 
 [dock]
 active_monitor_only = true
 background_opacity = 0.59999998658895493
 enabled = true
+<<<<<<< HEAD
 pinned = [ "nemo", "Alacritty", "geany", "zen-beta" ]
+=======
+>>>>>>> tbracquart-main
 reserve_space = false
 show_dots = true
 smart_auto_hide = true
@@ -120,9 +204,79 @@ widget_order = [
 ]
 
     [lockscreen_widgets.grid]
-    cell_size = 64
+    cell_size = 32
     major_interval = 4
     visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@FALLBACK"]
+    box_height = 196.0
+    box_width = 810.0
+<<<<<<< HEAD
+    cx = 800.00006103515625
+    cy = 748.33331298828125
+    output = "eDP-1"
+    placement_height = 900.0
+    placement_width = 1600.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+=======
+    cx = 960.0
+    cy = 898.0
+    output = "FALLBACK"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@FALLBACK".settings]
+>>>>>>> tbracquart-main
+        background_color = "surface_container"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+<<<<<<< HEAD
+=======
+        show_media = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "HDMI-A-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
+        background_color = "surface_container"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
@@ -146,6 +300,7 @@ widget_order = [
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = true
+>>>>>>> tbracquart-main
         show_media = false
         show_session_buttons = true
         show_unlock_hint = true
@@ -174,6 +329,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
@@ -215,6 +371,7 @@ widget_order = [
 
 [notification]
 background_opacity = 0.59999998658895493
+keep_dismissed_in_history = false
 position = "top_center"
 
 [osd]
@@ -252,8 +409,14 @@ settings_show_advanced = false
 settings_window_translucent = true
 time_format = "{:%-H:%M}"
 
-    [shell.launcher.providers.windows]
-    global = true
+    [shell.launcher]
+    pinned = [ "firefox", "nemo", "Alacritty", "org.x.editor", "btop", "Helix", "fresh-editor" ]
+
+        [shell.launcher.providers.panels]
+        global = false
+
+        [shell.launcher.providers.windows]
+        global = true
 
     [shell.panel]
     clipboard_placement = "attached"
@@ -309,41 +472,58 @@ wallpaper_scheme = "vibrant"
         "opencode",
         "pi-agent",
         "feishin",
+        "meiro",
         "pear-desktop",
+        "ratune",
+        "sidra",
+        "sone",
         "sonora",
         "spicetify",
+        "spicetify-noctalia",
         "spotifast",
         "supersonic",
         "tauon",
         "ytm-player",
         "brave",
         "brave-origin",
+        "chromium-based",
         "pywalfox",
         "pywalfox-beta4",
         "qutebrowser",
         "ungoogled-chromium",
+        "vivaldi",
         "zen-browser",
+        "cressida",
         "discord",
         "halloy",
+        "iamb",
         "karere",
         "nchat",
         "senpai",
+        "serein",
+        "slick",
         "telegram",
+        "yapfast",
+        "zapfast",
         "driftwm",
         "jay",
         "blender",
         "darktable",
         "gimp",
         "inkscape",
+        "lazyvim",
         "libreoffice",
         "micro",
         "musescore",
         "neovim",
         "obsidian",
+        "rawmakase",
+        "rhun",
         "vscode",
         "zed",
         "archetype-pokemmo",
         "heroiclauncher",
+        "pandora-launcher",
         "prismlauncher",
         "steam",
         "fuzzel",
@@ -351,27 +531,44 @@ wallpaper_scheme = "vibrant"
         "velo",
         "vicinae",
         "walker",
+        "yeet",
+        "betterbird",
         "fastfetch",
+        "flea",
         "mailspring",
         "obs",
+        "seanime",
         "sioyek",
         "siyuan",
+        "speedcrunch",
+        "strata",
+        "thunderbird",
         "zathura",
         "zellij",
+        "cosmic",
         "fcitx5",
+        "gruvbox-plus-icons",
         "hyprtoolkit",
         "papirus-icons",
         "snappy-switcher",
+        "thunar",
         "whitesur-icons",
         "bat",
         "fzf",
         "glow",
         "herdr",
+        "herdr-app",
         "konsole",
+        "lazydocker",
         "lazygit",
+        "lsd",
+        "oh-my-posh",
         "rio",
+        "starship",
+        "superfile",
         "surgedm",
         "tmux",
+        "tuios",
         "yazi"
     ]
 
@@ -427,4 +624,8 @@ type = "aristides/udiskie:status"
 show_label = false
 
 [widget.widget]
+<<<<<<< HEAD
 type = "tphilippot/git_companion:widget"
+=======
+type = "tphilippot/git_companion:widget"
+>>>>>>> tbracquart-main

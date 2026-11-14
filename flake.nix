@@ -2,8 +2,9 @@
   description = "NixOS + Home Manager Flake pour Ideapad3";
 
   nixConfig = {
-    # Le cache personnel est configuré dans common/system/nix.nix via config.nix.
-    # nixConfig ne peut pas lire config.nix : il n'est donc actif qu'après activation du système.
+    # Nix exige des valeurs littérales dans nixConfig : impossible d'importer
+    # caches.nix ou config.nix ici. Garder cette liste synchronisée avec
+    # common/system/caches.nix.
     extra-substituters = [
       "https://nix-community.cachix.org"
       "https://freesmlauncher.cachix.org"
@@ -20,7 +21,6 @@
     freesmlauncher.url = "github:FreesmTeam/FreesmLauncher/develop";
       home-manager = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
       };
      
     zen-browser = {
@@ -28,14 +28,11 @@
     inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flake-utils.url = "github:numtide/flake-utils";
+
    # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    omnibin = {
-      url = "github:fzakaria/omnibin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
   };

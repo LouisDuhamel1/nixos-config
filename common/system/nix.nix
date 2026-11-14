@@ -2,6 +2,7 @@
 
 let
   homeDirectory = config.users.users.${myConfig.username}.home;
+  caches = import ./caches.nix { inherit myConfig; };
 in
 
 {
@@ -10,6 +11,14 @@ in
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
+
+      # Déduplique les fichiers identiques à chaque ajout au magasin.
+      auto-optimise-store = true;
+
+      # Lance une collecte en cours de construction si l'espace devient faible.
+      # Nix s'arrête dès que max-free est atteint ou qu'il n'y a plus de déchets.
+      min-free = 5 * 1024 * 1024 * 1024;
+      max-free = 10 * 1024 * 1024 * 1024;
 
       substituters =
         [
@@ -21,25 +30,18 @@ in
         ++ lib.optional myConfig.cachix.enable "https://${myConfig.cachix.name}.cachix.org";
 
       trusted-public-keys =
-        [
-          "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-          "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
-          "freesmlauncher.cachix.org-1:Jcp5Q9wiLL+EDv8Mh7c6L9xGk+lXr7/otpKxMOuBuDs="
-          "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-        ]
-        ++ lib.optional myConfig.cachix.enable
-          "${myConfig.cachix.name}.cachix.org-1:${myConfig.cachix.publicKey}";
+        [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ]
+        ++ caches.personalTrustedPublicKeys
+        ++ caches.publicTrustedPublicKeys;
 
     };
 
     gc = {
       automatic = true;
       dates = "weekly";
+      # Supprime les générations de plus de sept jours.
       options = "--delete-older-than 7d";
     };
-
-    optimise.automatic = true;
   };
 
 }

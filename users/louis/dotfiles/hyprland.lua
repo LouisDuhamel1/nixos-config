@@ -1,7 +1,11 @@
 -- ============================================================
 --  Base = exemple officiel Hyprland + Paramètres Doctalia
+<<<<<<< HEAD
 -- ============================================================
 
+=======
+-- ========================================================
+>>>>>>> tbracquart-main
 require("config-hyprland.monitors")
 require("config-hyprland.programs")
 require("config-hyprland.autostart")
