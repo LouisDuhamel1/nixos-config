@@ -37,8 +37,7 @@
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
   };
 
-  outputs = {self,  nixpkgs, zen-browser, omnibin, ... }@inputs:
-    let
+
       myConfig = import ./config.nix;
       repoSource = nixpkgs.lib.fileset.toSource {
         root = ./.;
@@ -63,11 +62,9 @@
         specialArgs = { inherit inputs myConfig; };
         modules = [ 
           ./hosts/ideapad3/configuration.nix 
-          # 👇 Ajout de l'overlay pour patcher omnibin et lui donner sqlite et fuse3
           ({ pkgs, ... }: {
             nixpkgs.overlays = [
               (final: prev: {
-                omnibin = omnibin.packages.${prev.stdenv.hostPlatform.system}.omnibin.overrideAttrs (oldAttrs: {
                 nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ prev.pkg-config ];
                 buildInputs = (oldAttrs.buildInputs or []) ++ [ prev.sqlite prev.fuse3 ];
         
@@ -79,7 +76,6 @@
                 NIX_LDFLAGS = (oldAttrs.NIX_LDFLAGS or "") + " -L${prev.sqlite.out}/lib -L${prev.fuse3.out}/lib";
               });
       
-                omnibin-shell = omnibin.packages.${prev.stdenv.hostPlatform.system}.omnibin-shell.overrideAttrs (oldAttrs: {
                   nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ prev.pkg-config ];
                   buildInputs = (oldAttrs.buildInputs or []) ++ [ prev.sqlite prev.fuse3 ];
         
