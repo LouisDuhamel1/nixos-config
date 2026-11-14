@@ -16,13 +16,13 @@
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
     ];
   };
+  
 
   inputs = {
     freesmlauncher.url = "github:FreesmTeam/FreesmLauncher/develop";
-      home-manager = {
+      home-manager = {  
       url = "github:nix-community/home-manager/master";
-      };
-     
+      };   
     zen-browser = {
     url = "github:0xc000022070/zen-browser-flake";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -33,7 +33,7 @@
    # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
+    home-manager.backupFileExtension
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
   };
 
