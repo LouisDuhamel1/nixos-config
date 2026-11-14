@@ -37,7 +37,8 @@
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
   };
 
-
+outputs = { self, nixpkgs, zen-browser, omnibin, ... }@inputs:
+   let
       myConfig = import ./config.nix;
       repoSource = nixpkgs.lib.fileset.toSource {
         root = ./.;
