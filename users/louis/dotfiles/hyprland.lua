@@ -8,6 +8,9 @@
 -- Écran intégré du ZenBook, placé sous l'écran externe.
 hl.monitor({
     output   = "eDP-1",
+    mode     = "preferred",
+    position = "auto",
+    scale    = "1",
 })
 
 ---------------------
