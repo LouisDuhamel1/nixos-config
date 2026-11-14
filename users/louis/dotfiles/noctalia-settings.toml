@@ -194,11 +194,6 @@ allow_empty_password = true
 enabled = true
 schema_version = 2
 widget_order = [
-<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
-    "lockscreen-login-box@FALLBACK",
-    "lockscreen-login-box@HDMI-A-1",
-=======
->>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
     "lockscreen-login-box@winit",
     "lockscreen-login-box@eDP-1",
     "lockscreen-widget-0000000000000001",
@@ -288,12 +283,7 @@ widget_order = [
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = true
-<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
-        show_media = true
-        show_password_reveal = true
-=======
         show_media = false
->>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
@@ -328,20 +318,9 @@ widget_order = [
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 256.0
-<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
-    box_width = 736.0
-    cx = 816.0
-    cy = 412.0
-=======
     box_width = 832.0
-<<<<<<< HEAD
-    cx = 960.0001220703125
-    cy = 412.00006103515625
->>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
-=======
     cx = 1000.0000610351562
     cy = 429.16671752929688
->>>>>>> 0700962 (Adapter la configuration d'affichage de Louis (#3))
     output = "eDP-1"
     placement_height = 1125.0
     placement_width = 2000.0
@@ -353,30 +332,14 @@ widget_order = [
         center_text = true
         clock_style = "digital"
         color = "surface"
-<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
-        format = "{:%H:%M}"
-        timezone = "Europe/Paris"
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
-    box_height = 256.0
-    box_width = 256.0
-    cx = 1344.0
-    cy = 412.0
-=======
         format = "{:%k:%M}"
         timezone = "Europe/Paris"
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
     box_height = 0.0
     box_width = 0.0
-<<<<<<< HEAD
-    cx = 1459.2000732421875
-    cy = 463.20001220703125
->>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
-=======
     cx = 1520.0
     cy = 482.5
->>>>>>> 0700962 (Adapter la configuration d'affichage de Louis (#3))
     output = "eDP-1"
     placement_height = 1125.0
     placement_width = 2000.0
@@ -384,15 +347,9 @@ widget_order = [
     type = "clock"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
-<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
-        background = false
-        clock_style = "analog"
-        color = "surface"
-=======
         background_opacity = 0.0
         color = "surface"
         format = "{:%S}"
->>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
 
 [notification]
 background_opacity = 0.59999998658895493
@@ -424,12 +381,8 @@ enabled = [
 ]
 
 [shell]
-<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
-corner_radius_scale = 1.2500000186264515
-=======
 corner_radius_scale = 1.5000000223517418
 date_format = "%A, %-d/%-m/%Y"
->>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
 launch_apps_as_systemd_services = true
 panel_anchor_bar = "default"
 password_style = "random"
@@ -607,26 +560,14 @@ directory = "/home/louis/Images/Fonds d'écran/daily-wallpaper"
 transition_on_startup = true
 
     [wallpaper.default]
-<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
-    path = "/home/thibaut/Images/Fonds d'écran/daily-wallpaper/bing-fr-fr-2026-11-14.jpg"
+    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-05.jpg"
+    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-08.jpg"
 
     [wallpaper.last]
-    path = "/home/thibaut/Images/Fonds d'écran/daily-wallpaper/bing-fr-fr-2026-11-14.jpg"
-
-    [wallpaper.monitors.WAYLAND-1]
-    path = "/home/thibaut/Images/Fonds d'écran/daily-wallpaper/bing-fr-fr-2026-10-04.jpg"
+    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-08.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/thibaut/Images/Fonds d'écran/daily-wallpaper/bing-fr-fr-2026-11-14.jpg"
-=======
-    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-05.jpg"
-
-    [wallpaper.last]
-    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-05.jpg"
-
-    [wallpaper.monitors.eDP-1]
-    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-05.jpg"
->>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
+    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-08.jpg"
 
     [[wallpaper.favorite]]
     palette_source = "wallpaper"
@@ -667,18 +608,6 @@ type = "aristides/udiskie:status"
 show_label = false
 
 [widget.widget]
-<<<<<<< HEAD
-<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
 type = "tphilippot/git_companion:widget"
-
-[widget.widget_2]
-type = "nzlov/daily-wallpaper:widget"
-
-[widget.workspaces]
-style = "focus_hint"
-=======
 type = "tphilippot/git_companion:widget"
->>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
-=======
 type = "tphilippot/git_companion:widget"
->>>>>>> 0700962 (Adapter la configuration d'affichage de Louis (#3))
