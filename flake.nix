@@ -37,7 +37,7 @@
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
   };
 
-outputs = { self, nixpkgs, zen-browser, omnibin, ... }@inputs:
+outputs = { self, nixpkgs, zen-browser,  ... }@inputs:
    let
       myConfig = import ./config.nix;
       repoSource = nixpkgs.lib.fileset.toSource {
@@ -61,35 +61,7 @@ outputs = { self, nixpkgs, zen-browser, omnibin, ... }@inputs:
 
       nixosConfigurations.Ideapad3 = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs myConfig; };
-        modules = [ 
-          ./hosts/ideapad3/configuration.nix 
-          ({ pkgs, ... }: {
-            nixpkgs.overlays = [
-              (final: prev: {
-                nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ prev.pkg-config ];
-                buildInputs = (oldAttrs.buildInputs or []) ++ [ prev.sqlite prev.fuse3 ];
-        
-                 # Variables indispensables pour que le paquet Rust trouve SQLite et FUSE
-                SQLITE3_LIB_DIR = "${prev.sqlite.out}/lib";
-                SQLITE3_INCLUDE_DIR = "${prev.sqlite.dev}/include";
-                PKG_CONFIG_PATH = "${prev.sqlite.dev}/lib/pkgconfig:${prev.fuse3.dev}/lib/pkgconfig";
-        
-                NIX_LDFLAGS = (oldAttrs.NIX_LDFLAGS or "") + " -L${prev.sqlite.out}/lib -L${prev.fuse3.out}/lib";
-              });
-      
-                  nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [ prev.pkg-config ];
-                  buildInputs = (oldAttrs.buildInputs or []) ++ [ prev.sqlite prev.fuse3 ];
-        
-                  SQLITE3_LIB_DIR = "${prev.sqlite.out}/lib";
-                  SQLITE3_INCLUDE_DIR = "${prev.sqlite.dev}/include";
-                  PKG_CONFIG_PATH = "${prev.sqlite.dev}/lib/pkgconfig:${prev.fuse3.dev}/lib/pkgconfig";
-        
-                  NIX_LDFLAGS = (oldAttrs.NIX_LDFLAGS or "") + " -L${prev.sqlite.out}/lib -L${prev.fuse3.out}/lib";
-                });
-              })
-            ];
-          })         
-        ];
+        modules = [ ./hosts/ideapad3/configuration.nix ];
       };
     };
 }
