@@ -63,6 +63,7 @@ event_time_format = "%k:%M"
     type = "google"
 
 [desktop_widgets]
+enabled = false
 schema_version = 2
 widget_order = [
     "desktop-widget-0000000000000001",
@@ -80,22 +81,22 @@ widget_order = [
     [desktop_widgets.widget.desktop-widget-0000000000000001]
     box_height = 0.0
     box_width = 0.0
-    cx = 1760.0
-    cy = 1003.5
+    cx = 1466.6666259765625
+    cy = 836.25
     output = "eDP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
+    placement_height = 900.0
+    placement_width = 1600.0
     rotation = 0.0
     type = "nzlov/daily-wallpaper:desktop"
 
     [desktop_widgets.widget.desktop-widget-0000000000000002]
     box_height = 128.0
     box_width = 256.0
-    cx = 900.0
-    cy = 172.0
+    cx = 750.0
+    cy = 143.33332824707031
     output = "eDP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
+    placement_height = 900.0
+    placement_width = 1600.0
     rotation = 0.0
     type = "clock"
 
@@ -118,11 +119,11 @@ widget_order = [
     [desktop_widgets.widget.desktop-widget-0000000000000003]
     box_height = 128.0
     box_width = 128.0
-    cx = 1116.0
-    cy = 172.0
+    cx = 930.0
+    cy = 143.33332824707031
     output = "eDP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
+    placement_height = 900.0
+    placement_width = 1600.0
     rotation = 0.0
     type = "clock"
 
@@ -132,22 +133,22 @@ widget_order = [
     [desktop_widgets.widget.desktop-widget-0000000000000004]
     box_height = 0.0
     box_width = 0.0
-    cx = 964.0
-    cy = 300.0
+    cx = 803.33331298828125
+    cy = 250.0
     output = "eDP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
+    placement_height = 900.0
+    placement_width = 1600.0
     rotation = 0.0
     type = "weather"
 
     [desktop_widgets.widget.desktop-widget-0000000000000005]
     box_height = 136.0
     box_width = 312.0
-    cx = 960.0
-    cy = 888.0
+    cx = 800.0
+    cy = 740.0
     output = "eDP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
+    placement_height = 900.0
+    placement_width = 1600.0
     rotation = 0.0
     type = "media_player"
 
@@ -155,10 +156,7 @@ widget_order = [
 active_monitor_only = true
 background_opacity = 0.59999998658895493
 enabled = true
-<<<<<<< HEAD
 pinned = [ "nemo", "Alacritty", "geany", "zen-beta" ]
-=======
->>>>>>> tbracquart-main
 reserve_space = false
 show_dots = true
 smart_auto_hide = true
@@ -200,7 +198,8 @@ widget_order = [
     "lockscreen-login-box@winit",
     "lockscreen-login-box@eDP-1",
     "lockscreen-widget-0000000000000001",
-    "lockscreen-widget-0000000000000002"
+    "lockscreen-widget-0000000000000002",
+    "lockscreen-login-box@eDP-1-2"
 ]
 
     [lockscreen_widgets.grid]
@@ -208,86 +207,16 @@ widget_order = [
     major_interval = 4
     visible = true
 
-    [lockscreen_widgets.widget."lockscreen-login-box@FALLBACK"]
-    box_height = 196.0
-    box_width = 810.0
-<<<<<<< HEAD
-    cx = 800.00006103515625
-    cy = 748.33331298828125
-    output = "eDP-1"
-    placement_height = 900.0
-    placement_width = 1600.0
-    rotation = 0.0
-    type = "login_box"
-
-        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-=======
-    cx = 960.0
-    cy = 898.0
-    output = "FALLBACK"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "login_box"
-
-        [lockscreen_widgets.widget."lockscreen-login-box@FALLBACK".settings]
->>>>>>> tbracquart-main
-        background_color = "surface_container"
-        background_opacity = 0.88
-        background_radius = 12.0
-        center_password_text = false
-        input_opacity = 1.0
-        input_radius = 6.0
-        layout = "regular"
-        show_caps_lock = true
-        show_keyboard_layout = true
-        show_login_button = true
-<<<<<<< HEAD
-=======
-        show_media = true
-        show_password_reveal = true
-        show_session_buttons = true
-        show_unlock_hint = true
-        show_weather = true
-
-    [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
-    box_height = 196.0
-    box_width = 810.0
-    cx = 960.0
-    cy = 898.0
-    output = "HDMI-A-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "login_box"
-
-        [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1".settings]
-        background_color = "surface_container"
-        background_opacity = 0.88
-        background_radius = 12.0
-        center_password_text = false
-        input_opacity = 1.0
-        input_radius = 6.0
-        layout = "regular"
-        show_caps_lock = true
-        show_keyboard_layout = true
-        show_login_button = true
-        show_media = true
-        show_password_reveal = true
-        show_session_buttons = true
-        show_unlock_hint = true
-        show_weather = true
-
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 196.0
-    box_width = 810.0
-    cx = 800.00006103515625
-    cy = 748.33331298828125
+    box_height = 0.0
+    box_width = 0.0
+    cx = 0.0
+    cy = 0.0
     output = "eDP-1"
     placement_height = 900.0
     placement_width = 1600.0
     rotation = 0.0
-    type = "login_box"
+    type = "clock"
 
         [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
         background_color = "surface_container"
@@ -300,8 +229,35 @@ widget_order = [
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = true
->>>>>>> tbracquart-main
         show_media = false
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 800.0
+    cy = 718.0
+    output = "eDP-1"
+    placement_height = 900.0
+    placement_width = 1600.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1-2".settings]
+        background_color = "surface_container"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
@@ -624,8 +580,4 @@ type = "aristides/udiskie:status"
 show_label = false
 
 [widget.widget]
-<<<<<<< HEAD
 type = "tphilippot/git_companion:widget"
-=======
-type = "tphilippot/git_companion:widget"
->>>>>>> tbracquart-main
