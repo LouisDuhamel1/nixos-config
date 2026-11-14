@@ -11,8 +11,7 @@ Description claire de l'évolution que vous souhaitez apporter.
 
 ## Contexte technique
 ### Host / Environnement concerné
-- [ ] ZenBook-13
-- [ ] V145-15AST
+- [ ] Ideapad3
 - [ ] CI (GitHub Actions)
 
 ### Fichier(s) Nix concerné(s)

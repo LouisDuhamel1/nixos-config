@@ -7,8 +7,6 @@ enable_sounds = true
 [bar.default]
 background_opacity = 0.59999998658895493
 capsule = true
-capsule_radius = 10
-center = [ "notifications", "clipboard", "clock", "media", "widget_2", "notes" ]
 end = [ "tray", "group:g1", "screenshot", "session", "status" ]
 radius = 0
 radius_bottom_left = 12
@@ -58,6 +56,8 @@ sync_all_monitors = true
 
 [calendar]
 enabled = true
+event_date_format = "%-A %-e %B"
+event_time_format = "%k:%M"
 
     [calendar.account.personal_google]
     name = "Calendrier personnel"
@@ -156,7 +156,11 @@ widget_order = [
 active_monitor_only = true
 background_opacity = 0.59999998658895493
 enabled = true
+<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
 pinned = [ "firefox", "nemo", "Alacritty", "Helix", "fresh-editor", "firefox.webapp-e6764fec-2ff6-4b9e-9500-cf8a26cc4e92" ]
+=======
+pinned = [ "nemo", "Alacritty", "geany", "zen-beta" ]
+>>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
 reserve_space = false
 show_dots = true
 smart_auto_hide = true
@@ -195,8 +199,11 @@ allow_empty_password = true
 enabled = true
 schema_version = 2
 widget_order = [
+<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
     "lockscreen-login-box@FALLBACK",
     "lockscreen-login-box@HDMI-A-1",
+=======
+>>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
     "lockscreen-login-box@winit",
     "lockscreen-login-box@eDP-1",
     "lockscreen-widget-0000000000000001",
@@ -267,7 +274,7 @@ widget_order = [
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
     box_width = 810.0
-    cx = 960.0
+    cx = 960.0001220703125
     cy = 898.0
     output = "eDP-1"
     placement_height = 1080.0
@@ -286,8 +293,12 @@ widget_order = [
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = true
+<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
         show_media = true
         show_password_reveal = true
+=======
+        show_media = false
+>>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
@@ -322,9 +333,15 @@ widget_order = [
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 256.0
+<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
     box_width = 736.0
     cx = 816.0
     cy = 412.0
+=======
+    box_width = 832.0
+    cx = 960.0001220703125
+    cy = 412.00006103515625
+>>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -336,6 +353,7 @@ widget_order = [
         center_text = true
         clock_style = "digital"
         color = "surface"
+<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
         format = "{:%H:%M}"
         timezone = "Europe/Paris"
 
@@ -344,6 +362,16 @@ widget_order = [
     box_width = 256.0
     cx = 1344.0
     cy = 412.0
+=======
+        format = "{:%k:%M}"
+        timezone = "Europe/Paris"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1459.2000732421875
+    cy = 463.20001220703125
+>>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -351,9 +379,15 @@ widget_order = [
     type = "clock"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
         background = false
         clock_style = "analog"
         color = "surface"
+=======
+        background_opacity = 0.0
+        color = "surface"
+        format = "{:%S}"
+>>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
 
 [notification]
 background_opacity = 0.59999998658895493
@@ -372,7 +406,7 @@ update_command = "git -C ~/nixos-config pull --ff-only && sudo nixos-rebuild swi
 locale = "fr-FR"
 
 [plugin_settings."tphilippot/git_companion"]
-repo = "tbracquart/nixos-config"
+repo = "LouisDuhamel1/nixos-config"
 
 [plugins]
 enabled = [
@@ -385,7 +419,12 @@ enabled = [
 ]
 
 [shell]
+<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
 corner_radius_scale = 1.2500000186264515
+=======
+corner_radius_scale = 1.5000000223517418
+date_format = "%A, %-d/%-m/%Y"
+>>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
 launch_apps_as_systemd_services = true
 panel_anchor_bar = "default"
 password_style = "random"
@@ -393,6 +432,7 @@ polkit_agent = true
 screen_time_enabled = true
 settings_show_advanced = false
 settings_window_translucent = true
+time_format = "{:%-H:%M}"
 
     [shell.launcher]
     pinned = [ "firefox", "nemo", "Alacritty", "org.x.editor", "btop", "Helix", "fresh-editor" ]
@@ -424,7 +464,7 @@ community_palette = "Oxocarbon"
 custom_palette = "wp12329556-nixos-wallpapers-vib"
 mode = "auto"
 source = "wallpaper"
-wallpaper_scheme = "faithful"
+wallpaper_scheme = "vibrant"
 
     [theme.templates]
     builtin_ids = [
@@ -558,10 +598,11 @@ wallpaper_scheme = "faithful"
     ]
 
 [wallpaper]
-directory = "~/Images/Fonds d'écran"
+directory = "/home/louis/Images/Fonds d'écran/daily-wallpaper"
 transition_on_startup = true
 
     [wallpaper.default]
+<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
     path = "/home/thibaut/Images/Fonds d'écran/daily-wallpaper/bing-fr-fr-2026-11-14.jpg"
 
     [wallpaper.last]
@@ -572,6 +613,15 @@ transition_on_startup = true
 
     [wallpaper.monitors.eDP-1]
     path = "/home/thibaut/Images/Fonds d'écran/daily-wallpaper/bing-fr-fr-2026-11-14.jpg"
+=======
+    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-05.jpg"
+
+    [wallpaper.last]
+    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-05.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/louis/Images/Fonds d'écran/daily-wallpaper/daily-wallpaper/bing-fr-fr-2026-10-05.jpg"
+>>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml
 
     [[wallpaper.favorite]]
     palette_source = "wallpaper"
@@ -586,7 +636,7 @@ show_label = false
 show_label = false
 
 [widget.clock]
-format = "{:%H:%M | %x}"
+format = "{:%k:%M | %-d/%-m/%Y}"
 timezone = "Europe/Paris"
 
 [widget.media]
@@ -612,6 +662,7 @@ type = "aristides/udiskie:status"
 show_label = false
 
 [widget.widget]
+<<<<<<< HEAD:users/thibaut/dotfiles/noctalia-settings.toml
 type = "tphilippot/git_companion:widget"
 
 [widget.widget_2]
@@ -619,3 +670,6 @@ type = "nzlov/daily-wallpaper:widget"
 
 [widget.workspaces]
 style = "focus_hint"
+=======
+type = "tphilippot/git_companion:widget"
+>>>>>>> c775ccb (refactor: adapt configuration for louis (#1)):users/louis/dotfiles/noctalia-settings.toml

@@ -11,8 +11,7 @@ Description claire et concise du problème rencontré.
 
 ## Contexte technique
 ### Host / Environnement concerné
-- [ ] ZenBook-13
-- [ ] V145-15AST
+- [ ] Ideapad3
 - [ ] CI (GitHub Actions)
 
 ### Fichier(s) Nix impacté(s)
