@@ -30,8 +30,11 @@ in
       settings = {
         output.scale = 1;
         keyboard.layout = "fr";
-        auth.allow_empty_password = true;
-      };      
+        clock = {
+          time_format = "{:%k:%M}";
+          date_format = "{%A, %-d/%-m/%Y}";
+        };
+      };     
     };
   };
 }
