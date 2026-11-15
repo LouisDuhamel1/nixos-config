@@ -10,7 +10,7 @@
 
   networking.hostName = "Ideapad3";
   system.stateVersion = "26.05";
-
+  documentation.enable = false;
  # nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
   
   home-manager = {

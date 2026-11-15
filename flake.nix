@@ -35,7 +35,6 @@
    # nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.backupFileExtension
     multiverse.url = "github:fzakaria/nixpkgs-multiverse";
   };
 
