@@ -19,6 +19,8 @@
   
 
   inputs = {
+
+
     freesmlauncher.url = "github:FreesmTeam/FreesmLauncher/develop";
       home-manager = {  
       url = "github:nix-community/home-manager/master";
