@@ -18,8 +18,7 @@
     inotify-tools
     lsof
     fuse3
-    sqlite
-    zen-beta
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ]) ++ [
     inputs.freesmlauncher.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
