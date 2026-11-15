@@ -12,18 +12,19 @@
   system.stateVersion = "26.05";
 
  # nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
-
+  
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs myConfig; };
-    backupFileExtension = "backup";
     users.${myConfig.username} = {
       imports = [
         ../../users/louis/base
         ../../users/louis/variants/ideapad3.nix
       ];
+    
     };
+    backupFileExtension = "backup";
   };
  nix.settings.trusted-users = [ "root" "louis" ];
   
@@ -35,4 +36,4 @@
   my.location.geoclue2.enable = true;
   my.virtualisation.libvirt.enable = true;
   my.virtualisation.libvirt.user = myConfig.username;
-}
+ }
