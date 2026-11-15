@@ -19,7 +19,6 @@
     lsof
     fuse3
     sqlite
-    zen-beta
   ]) ++ [
     inputs.freesmlauncher.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];

@@ -1,4 +1,4 @@
-config_version = 20
+config_version = 16
 
 [audio]
 enable_overdrive = true
