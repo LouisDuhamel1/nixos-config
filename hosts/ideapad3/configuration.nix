@@ -7,12 +7,25 @@
     ../../common
     ../../users/louis/storage.nix
   ];
-
   networking.hostName = "Ideapad3";
   system.stateVersion = "26.05";
-  documentation.enable = false;
  # nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
-  
+  nixpkgs.overlays = [
+  (final: prev: {
+    nixos-manual-html = prev.nixos-manual-html.overrideAttrs (old: {
+      preBuild = (old.preBuild or "") + ''
+        substituteInPlace redirects.json \
+          --replace-fail '{' '{
+            "module-pelican-wings": "index.html",
+            "module-pelican-wings-setup": "index.html",
+            "module-pelican-panel-reverse-proxy": "index.html",
+            "module-pelican-panel-basic-usage": "index.html",
+            "module-pelican-panel-environment": "index.html",
+            "module-pelican-wings-traefik": "index.html",'
+          '';
+        });
+      })
+    ];
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
