@@ -26,6 +26,8 @@
         });
       })
     ];
+
+  nix.settings.extra-experimental-features = [ "no-lazy-trees" ];
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
