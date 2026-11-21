@@ -26,8 +26,7 @@
         });
       })
     ];
-
-  nix.settings.extra-experimental-features = [ "no-lazy-trees" ];
+  services.udisks2.enable = true;
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
