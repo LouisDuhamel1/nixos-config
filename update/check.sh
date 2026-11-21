@@ -28,5 +28,7 @@ local_rev=$(nix eval --raw --impure --expr "(builtins.getFlake \"path:$PWD\").in
 remote_rev=$(git ls-remote https://github.com/NixOS/nixpkgs.git nixos-unstable | cut -f1)
  
 if [ "$local_rev" != "$remote_rev" ]; then
-   ./update/updates.sh
+  /run/wrappers/bin/sudo /home/louis/nixos-config/update/updates.sh
+else
+  /run/wrappers/bin/sudo /home/louis/nixos-config/update/updates.sh
 fi
