@@ -29,6 +29,4 @@ remote_rev=$(git ls-remote https://github.com/NixOS/nixpkgs.git nixos-unstable |
  
 if [ "$local_rev" != "$remote_rev" ]; then
   /run/wrappers/bin/sudo /home/louis/nixos-config/update/updates.sh
-else
-  /run/wrappers/bin/sudo /home/louis/nixos-config/update/updates.sh
 fi
