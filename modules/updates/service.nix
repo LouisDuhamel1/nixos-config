@@ -24,6 +24,8 @@
       gnugrep
       openssh
       util-linux
+      lsof
+      nixos-rebuild
     ];
 
     serviceConfig = {
