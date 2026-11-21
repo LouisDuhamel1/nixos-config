@@ -11,7 +11,6 @@
 
   systemd.services.updates = {
     description = "Mon service utilisateur toutes les 6h";
-    wantedBy = [ "multi-user.target" ];
 
     path = with pkgs; [
       libnotify
